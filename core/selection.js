@@ -157,7 +157,7 @@ class Selection {
   }
 
   getNativeRange() {
-    let selection = document.getSelection();
+    let selection = this.root.getRootNode() ? this.root.getRootNode().getSelection() : document.getSelection();
     if (selection == null || selection.rangeCount <= 0) return null;
     let nativeRange = selection.getRangeAt(0);
     if (nativeRange == null) return null;
